@@ -1,5 +1,5 @@
 # 🐢 turtlerino 🐢
-## any new updates wont work through using .exe  i have completely fucked myself over somehow and spent 3 hours fixing my python version so you cant run new changed on the .exe yet sadly, i apologize since its a pretty nice update peepoSad!
+## any new updates wont work through using .exe  i have completely fucked myself over somehow and spent 3 hours fixing my python version so you cant run new changes on the .exe yet sadly, i apologize since its a pretty nice update peepoSad!
 
 ## **turtlerino is a twitch chat tool used to enhance a users experience on the platform.** 
 

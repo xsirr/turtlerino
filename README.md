@@ -18,8 +18,7 @@ Once you have done that you can now run the file called turtlerino
 The box at the top is where you write what channel you want to send to **turtoise** for example.
 The box at the bottom is where you send all your messages, If you would like to spam singular messages check spam burst and leave the line count as 1 then hold enter.
 
-
-
+(if you dont have prime then colour per message will not be shown since it uses prime colours atm!)
 
 | Checkboxes | What they do |
 | -------- |------------- |
@@ -29,13 +28,16 @@ The box at the bottom is where you send all your messages, If you would like to 
 | prime | enables sending a hex code in a rainbow order instead of it being random default twitch colours |
 | /me | sends every message received from the texbox with /me infront 
 
-
 **There are also custom commands built into the chatbox**
 
 /pyramid (amount) (message) sends a pyramid in chat with a max character of 500 if its more than that it wont send into chat preventing a half pyramid to send. 
 /trihard will send TriHard 7 into chat
 
 To add custom commands you will need to click settings there you will find a command: and then a textbox with / already entered in. To create a valid command you need to type (command)(space)(message to send) and then press enter, close the settings window, type out your command in chat and enjoy :) 
+
+To create a multi line command for example sending TriHard 7 and then WideHardo 7 you need to add // inbetween the messages. 
+For example /widest TriHard 7 // WideHardo 7 would be a valid command  https://i.imgur.com/gxz84aP.png as an example 
+
 
 There is not a way to delete a command yet as a button so if you really want to delete a command open the commands file with notepad or any text editor and make sure when deleting a command the formatting of {command: message to send} is still correct or you may risk it being invalid.
 

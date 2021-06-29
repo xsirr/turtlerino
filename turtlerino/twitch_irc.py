@@ -135,7 +135,12 @@ def rainbow(answer,channel,slashme):
 def custom_commands(message, channel, slash_me,color_each_msg):
     with open("commands.json") as custom_commands_file:
         custom_cmd = json.load(custom_commands_file)
-    send(custom_cmd[message], channel, slash_me,color_each_msg)  # parses the command and sends it to chat
+        if "//" in custom_cmd[message]: # if it detects //
+            multiple_messages = custom_cmd[message].split("//") # split it to find each line to send 
+            for messages in multiple_messages:
+                send(messages,channel,slash_me,color_each_msg) 
+        else:
+            send(custom_cmd[message],channel,slash_me,color_each_msg) # send the one message
 
 
 def commands(message, channel,slash_me,color_each_msg):

@@ -29,8 +29,9 @@ def entry_box_send(keypress):
             if commands in e.get():
                 twitch.commands(message, channel, slash_me_answer.get(),color_each_msg_answer.get())  # handle the commands
         if e.get() in custom_cmd:
-            if spam_answer.get() == "On":
-                twitch.custom_commands(message, channel, slash_me_answer.get(),color_each_msg_answer.get())  # handle the custom commands
+            if spam_answer.get() == "On": # if spam is enabled with custom command
+                for i in range(horizontal.get()):
+                    twitch.custom_commands(message, channel, slash_me_answer.get(),color_each_msg_answer.get())  # handle the custom commands
             else:
                 e.delete(0, "end")  # delete entry box
                 twitch.custom_commands(message, channel, slash_me_answer.get(),color_each_msg_answer.get())  # handle the custom commands

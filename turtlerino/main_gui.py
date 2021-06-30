@@ -3,6 +3,7 @@ import twitch_spam as spam
 import json
 import twitch_irc as twitch
 import random
+import time 
 with open("commands.json") as custom_commands_file:
     custom_cmd = json.load(custom_commands_file)
 
@@ -48,6 +49,7 @@ def entry_box_send(keypress):
                 # when using the spam command in entry box it will use all the sockets in the list and send the message
                 starting_number = 0
                 burst_spam_amount = horizontal.get()
+
                 while True:
                     for all_sockets in spam.sockets():
                         if starting_number == burst_spam_amount:  # if the burst amount is sent then stop.
@@ -58,6 +60,7 @@ def entry_box_send(keypress):
 
                         if slash_me_answer.get() == "On":
                             if not message.startswith("/"):  # wont send commands with /me enabled
+                                time.sleep(rate_limit)
                                 spam.sendRaw_as_spam("PRIVMSG " + channel + " :/me " + message, all_sockets)  # send the same message over all sockets with /me
 
                             else:
@@ -99,7 +102,7 @@ def settings():
     command_name_entry = Entry(root, background="#1E1E1E", foreground="white", highlightcolor="black",borderwidth=1)
     command_name_entry.insert(0,"/")
     command_name_entry.bind('<Return>', command)
-    command_name_entry.place(width=70, height=30, relx=0.4, rely=0.0, anchor="nw")
+    command_name_entry.place(width=150, height=30, relx=0.4, rely=0.0, anchor="nw")
 
 
 e = Entry(root, background="#1E1E1E", foreground="white", highlightcolor="black",borderwidth=1)   # using e.get will get the sentence within the entry box

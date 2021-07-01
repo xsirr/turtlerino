@@ -39,6 +39,8 @@ To add custom commands you will need to click settings there you will find a com
 To create a multi line command for example sending TriHard 7 and then WideHardo 7 you need to add // inbetween the messages. 
 For example /widest TriHard 7 // WideHardo 7 would be a valid command  https://i.imgur.com/gxz84aP.png as an example 
 
+When spam bursting a command, it instead loops that command the amount set, for example if you have a command that says hello and spam burst set to 5 it will repeat the command 5 times sending hello 
+
 
 There is not a way to delete a command yet as a button so if you really want to delete a command open the commands file with notepad or any text editor and make sure when deleting a command the formatting of {command: message to send} is still correct or you may risk it being invalid.
 

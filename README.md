@@ -1,5 +1,5 @@
 # 🐢 turtlerino 🐢
-## any new updates wont work through using .exe  i have completely fucked myself over somehow and spent 3 hours fixing my python version so you cant run new changes on the .exe yet sadly, i apologize since its a pretty nice update peepoSad!
+## New updates wont be available for .exe (learn how to run a python file and run main_gui.py if you want the new updates) currently the way of making a .exe isnt working and im unsure on why that is sorry. 
 
 ## **turtlerino is a twitch chat tool used to enhance a users experience on the platform.** 
 

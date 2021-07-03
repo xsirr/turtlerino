@@ -74,32 +74,27 @@ thread_twitch.start()
 
 
 def connect_and_login_and_keep_spam_alive():
-    try:
-        count = 0
+    count = 0
+    for all_sockets in spam.sockets():
+        time.sleep(0.2)
+        print("Connecting")
+        count += 1
+        all_sockets.connect(('irc.chat.twitch.tv', 6667))
+        print("Logging in")
+        if count == 10:
+            print("--------------------------")
+            print("you can spam now WideHardo")
+            print("--------------------------")
+        spam.sendRaw_as_spam('PASS oauth:' + oauth, all_sockets)
+        spam.sendRaw_as_spam('NICK turtlerino', all_sockets)
+
+    while True:
         for all_sockets in spam.sockets():
-            time.sleep(0.2)
-            print("Connecting")
-            count += 1
-            all_sockets.connect(('irc.chat.twitch.tv', 6667))
-            print("Logging in")
-            if count == 10:
-                print("--------------------------")
-                print("you can spam now WideHardo")
-                print("--------------------------")
-            spam.sendRaw_as_spam('PASS oauth:' + oauth, all_sockets)
-            spam.sendRaw_as_spam('NICK turtlerino', all_sockets)
-
-        while True:
-            for all_sockets in spam.sockets():
+            time.sleep(1)
+            data = all_sockets.recv(2048).decode('utf -8')  # keeps sockets alive
+            if "PING" in data:  # keeps sockets alive
                 time.sleep(1)
-                data = all_sockets.recv(2048).decode('utf -8')  # keeps sockets alive
-                if "PING" in data:  # keeps sockets alive
-                    time.sleep(1)
-                    all_sockets.send(bytes('PONG tmi.twitch.tv\r\n', 'utf-8'))  # keeps sockets alive
-
-    except Exception as e:
-        print(e)
-
+                all_sockets.send(bytes('PONG tmi.twitch.tv\r\n', 'utf-8'))  # keeps sockets alive
 
 def spam_connect():
     thread_twitch = threading.Thread(target=connect_and_login_and_keep_spam_alive)
@@ -167,3 +162,11 @@ def commands(message, channel,slash_me,color_each_msg):
             pyramid(int(number[1]), " " + emote + " ")
         except:
             pass
+
+
+    if "commands" in message:
+        with open("commands.json") as custom_commands_file:
+            custom_cmd = json.load(custom_commands_file)
+            for commands in custom_cmd:
+                print(commands)
+

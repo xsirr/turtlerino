@@ -31,18 +31,12 @@ def send(text: str, channel: str, slash_me, color_each_msg):
         messages = textwrap.wrap(text , 500, break_long_words=False, replace_whitespace=False)
         if slash_me == "On":
             sendRaw(f'PRIVMSG {channel} :/me {str(messages[0])}')
-            if len(messages) > 1:
-                nextmsg = ' '.join(messages[1:])
-                send(" " + nextmsg + " ",channel,slash_me,color_each_msg)
             if color_each_msg == "On":
                 rainbow(color_each_msg, channel, slash_me)
         else:
             sendRaw(f'PRIVMSG {channel} :{str(messages[0])}')
             if color_each_msg == "On":
                 rainbow(color_each_msg, channel, slash_me)
-        if len(messages) > 1:
-            nextmsg = ' '.join(messages[1:])
-            send(" " + nextmsg + " ",channel,slash_me,color_each_msg)
 
 
 def sendcommand(message, channel):
@@ -169,4 +163,5 @@ def commands(message, channel,slash_me,color_each_msg):
             custom_cmd = json.load(custom_commands_file)
             for commands in custom_cmd:
                 print(commands)
+
 

@@ -30,6 +30,7 @@ The box at the bottom is where you send all your messages, If you would like to 
 
 **There are also custom commands built into the chatbox**
 | commands | What they do |
+| -------- | ------------ |
 | /pyramid (amount) (message)| sends a pyramid in chat with a max character of 500 if its more than that it wont send into chat preventing a half pyramid to send. |
 | /trihard | will send TriHard 7 into chat. |
 | /commands | will list all your custom commands in the console. |

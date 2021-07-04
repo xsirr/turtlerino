@@ -4,6 +4,8 @@
 
 [image example](https://i.imgur.com/HilfahP.png)
 
+If you have any issues or requests you can contact me on twitch: @turtoise and discord: Turtoise#6731 
+
 ## To begin I would highly recommend for you to research on ratelimits that twitch has **[here](https://dev.twitch.tv/docs/irc/guide#command--message-limit).**
 
 

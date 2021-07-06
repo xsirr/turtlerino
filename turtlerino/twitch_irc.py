@@ -51,7 +51,7 @@ def login():
 
 def keep_alive():
     while True:  # continuously getting the data
-        chat = sock.recv(1024).decode('utf -8')  # socket data (chat)
+        chat = sock.recv(1024).decode('utf-8',errors='replace')  # socket data (chat)
         print(chat)
         if "PING" in chat:
             sendRaw("PONG")  # This keeps the bot alive  when  twitch sends PING a bot needs to send PONG back.
@@ -164,4 +164,17 @@ def commands(message, channel,slash_me,color_each_msg):
             for commands in custom_cmd:
                 print(commands)
 
+
+    if "remove" in message:
+        command_to_delete = message.replace("/remove","").strip()
+        with open("commands.json") as custom_commands_file:
+                custom_cmd = json.load(custom_commands_file)
+
+        if command_to_delete in custom_cmd: 
+            print("removed command: " + command_to_delete)
+            del custom_cmd[command_to_delete] # result of removing the command 
+            with open("commands.json","w") as f:
+                json.dump(custom_cmd,f)
+        else:
+            print("command not found")
 

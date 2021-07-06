@@ -35,6 +35,7 @@ The box at the bottom is where you send all your messages, If you would like to 
 | -------- | ------------ |
 | /pyramid (amount) (message)| sends a pyramid in chat with a max character of 500 if its more than that it wont send into chat preventing a half pyramid to send. |
 | /trihard | will send TriHard 7 into chat. |
+| /remove (command) | removes the command specified, e.g. /remove /trihard |
 | /commands | will list all your custom commands in the console. |
 
 To add custom commands you will need to click settings there you will find a command: and then a textbox with / already entered in. To create a valid command you need to type (command)(space)(message to send) and then press enter, close the settings window, type out your command in chat and enjoy :) 
@@ -43,9 +44,6 @@ To create a multi line command for example sending TriHard 7 and then WideHardo 
 For example /widest TriHard 7 // WideHardo 7 would be a valid command  https://i.imgur.com/gxz84aP.png as an example 
 
 When spam bursting a command, it instead loops that command the amount set, for example if you have a command that says hello and spam burst set to 5 it will repeat the command 5 times sending hello 
-
-
-There is not a way to delete a command yet as a button so if you really want to delete a command open the commands file with notepad or any text editor and make sure when deleting a command the formatting of {command: message to send} is still correct or you may risk it being invalid.
 
 Windows may detect turtlerino as a virus. This is because it has an untrusted unsigned exe which would cost a yearly payment which im not willing to do. If you would not want this message disable your antivirus or run the "run" python file instead of turtlerino.exe, the files and what they do are all there so if you do not trust the program you can see everything that it does.
 

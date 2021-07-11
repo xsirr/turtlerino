@@ -1,14 +1,13 @@
 from tkinter import *
-import json
-import random
-import time
-import twitch_irc as twitch
 import twitch_spam as spam
-
+import json
+import twitch_irc as twitch
+import random
+import time 
 with open("commands.json") as custom_commands_file:
     custom_cmd = json.load(custom_commands_file)
 
-commandslist = ["/pyramid","/commands","/remove"]
+commandslist = ["/pyramid","/commands"]
 
 root = Tk(className="turtlerino")
 root.geometry("350x350+900+4")  # width x height, position of window width height
@@ -61,7 +60,9 @@ def entry_box_send(keypress):
 
                         if slash_me_answer.get() == "On":
                             if not message.startswith("/"):  # wont send commands with /me enabled
+                                time.sleep(rate_limit)
                                 spam.sendRaw_as_spam("PRIVMSG " + channel + " :/me " + message, all_sockets)  # send the same message over all sockets with /me
+
                             else:
                                 spam.sendRaw_as_spam("PRIVMSG " + channel + " :" + message,all_sockets)  # send the same message over all sockets without /me (for commands)
 
@@ -166,3 +167,7 @@ def timer_rainbow():
 
         counter += 1
         root.after(horizontal_rainbow.get() * 1000, timer_rainbow)  # milliseconds
+
+
+timer_rainbow()
+root.mainloop()
